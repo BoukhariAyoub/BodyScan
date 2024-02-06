@@ -1,4 +1,4 @@
 import sys
 
-sys.path.append('/dev/fork/BodyScan/lib/nms')
+sys.path.append('/home/ubuntu/dev/fork/BodyScan/lib/nms')
 print(sys.path)
