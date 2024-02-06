@@ -10,6 +10,16 @@ from options.measure_options import MeasureOptions
 from get_depth import depth_predict
 from bbox_extraction import bbox_extraction
 
+import cv2
+
+# Define the file path
+file_path = './data/inputs/11.jpg'
+
+# Print the file path for debugging
+print("File Path:", file_path)
+
+# Attempt to read the image
+image = cv2.imread(file_path)
 
 def point_cloud(depth):
     f_mm = 3.519
