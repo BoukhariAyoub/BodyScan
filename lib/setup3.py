@@ -116,8 +116,10 @@ ext_modules =     [Extension('nms.gpu_nms',
         # this syntax is specific to this build system
         # we're only going to use certain compiler args with nvcc and not with
         # gcc the implementation of this trick is in customize_compiler() below
+        cuda_arch = os.getenv('CUDA_ARCH', 'sm_60')  # Default to 'sm_35' if not set
+
         extra_compile_args={'gcc': ["-Wno-unused-function"],
-                            'nvcc': ['-arch=sm_35',
+                            'nvcc': ['-arch=' + cuda_arch,
                                      '--ptxas-options=-v',
                                      '-c',
                                      '--compiler-options',
