@@ -7,7 +7,7 @@ from utils import BasicBlock, Bottleneck, BBoxTransform, ClipBoxes
 from anchors import Anchors
 import losses
 # from lib.nms.pth_nms import pth_nms
-from lib.nms.gpu_nms import gpu_nms
+from gpu_nms import gpu_nms
 
 def nms(dets, thresh):
     # "Dispatch to either CPU or GPU NMS implementations. Accept dets as tensor"""
