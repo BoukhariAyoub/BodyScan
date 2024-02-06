@@ -6,6 +6,9 @@ import torch.utils.model_zoo as model_zoo
 from utils import BasicBlock, Bottleneck, BBoxTransform, ClipBoxes
 from anchors import Anchors
 import losses
+import sys
+sys.path.append('/home/ubuntu/dev/fork/BodyScan/lib/nms')
+print(sys.path)
 # from lib.nms.pth_nms import pth_nms
 from gpu_nms import gpu_nms
 
