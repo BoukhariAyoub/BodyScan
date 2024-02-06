@@ -10,7 +10,7 @@ import sys
 sys.path.append('/home/ubuntu/dev/fork/BodyScan/lib/nms')
 print(sys.path)
 # from lib.nms.pth_nms import pth_nms
-from gpu_nms import gpu_nms
+from lib.nms.gpu_nms import gpu_nms
 
 def nms(dets, thresh):
     # "Dispatch to either CPU or GPU NMS implementations. Accept dets as tensor"""
