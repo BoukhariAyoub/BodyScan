@@ -106,6 +106,8 @@ class custom_build_ext(build_ext):
     def build_extensions(self):
         customize_compiler_for_nvcc(self.compiler)
         build_ext.build_extensions(self)
+        
+cuda_arch = os.getenv('CUDA_ARCH', 'sm_60')
 
 ext_modules =     [Extension('nms.gpu_nms',
         ['nms/nms_kernel.cu', 'nms/gpu_nms.pyx'],
@@ -116,7 +118,6 @@ ext_modules =     [Extension('nms.gpu_nms',
         # this syntax is specific to this build system
         # we're only going to use certain compiler args with nvcc and not with
         # gcc the implementation of this trick is in customize_compiler() below
-        cuda_arch = os.getenv('CUDA_ARCH', 'sm_60')  # Default to 'sm_35' if not set
 
         extra_compile_args={'gcc': ["-Wno-unused-function"],
                             'nvcc': ['-arch=' + cuda_arch,
